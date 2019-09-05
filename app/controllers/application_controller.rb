@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :set_user
+    helper_method :current_user, :set_user
 
 
     def current_user
@@ -9,4 +9,5 @@ class ApplicationController < ActionController::Base
     def set_user
         @user = current_user
     end
+    
 end
