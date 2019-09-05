@@ -3,6 +3,17 @@
 <p>
 <%= "Select Country, Select State if Country United States" %>
 <%= form_for(@review) do |f|%>
+    <p> Select a city: </p>
+    <div>
+    <%= f.collection_select :city_id, City.all, :id, :name %>
+    </div>
+
+    <p> Create a new city: </p>
+    <div>
+        <%= f.fields_for :city do |c| %>
+            <%= c.text_field :name, placeholder: "City Name" %>
+        <% end %>
+    </div>
 
     <div>
         <%= f.label :title %>
