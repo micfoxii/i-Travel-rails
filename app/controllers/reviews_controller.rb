@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
     def new
         @review = Review.new
-        # @review.build_city
+        @review.build_city
         # @review.build_state
         # @review.build_country
     end
