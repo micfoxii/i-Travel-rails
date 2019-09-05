@@ -6,6 +6,8 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.text :content
       t.belongs_to :user, foreign_key: true
       t.belongs_to :city, foreign_key: true
+      t.belongs_to :state, foreign_key: true
+      t.belongs_to :country, foreign_key: true
 
       t.timestamps
     end
