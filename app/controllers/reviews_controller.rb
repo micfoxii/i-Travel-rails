@@ -17,10 +17,28 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def show
+        find_user
+        find_review
+    end
+
+    def index
+        find_user
+        @trips = @user.trips.all 
+    end
+
     private
+
+    def find_user
+        @user = User.find_by(id: params[:user_id])
+    end
 
     def find_city
         @city = City.find_by(id: params[:city_id])
+    end
+
+    def find_review
+        @review = Review.find(params[:id])
     end
     
     def review_params
