@@ -1,1 +1,8 @@
-<h1> Review Index</h1>
+<h1> <%= @user.name %>, view, edit, or delete you recorded destination reviews: </h1>
+
+<% if @user == current_user %>
+
+    <%= "Edit Review" %>
+    <%= "Delete Review" %>
+    <%= link_to "Add New Review", new_user_review(@user) %>
+<% end %>
