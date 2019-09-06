@@ -27,6 +27,15 @@ class ReviewsController < ApplicationController
         @trips = @user.reviews.all 
     end
 
+    def edit
+    end
+
+    def update
+    end
+
+    def destroy
+    end
+    
     private
 
     def find_user

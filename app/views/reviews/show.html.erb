@@ -1,1 +1,8 @@
-<h1> Review View </h1>
+<h1> Edit or Delete Review </h1>
+
+<% if @user == current_user %>
+
+    <%= "Edit Trip" %>
+    <%= "Delete Trip" %>
+
+<% end %>
