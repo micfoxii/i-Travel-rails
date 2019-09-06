@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
     private
 
     def find_city
-        @city = City.find_by(:id params[:city_id])
+        @city = City.find_by(id: params[:city_id])
     end
     
     def review_params

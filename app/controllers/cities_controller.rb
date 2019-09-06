@@ -5,11 +5,16 @@ class CitiesController < ApplicationController
     end
 
     def create
-        @city = City.create(city)
+        @city = City.create(city_params)
+        if @city.save
+            redirect_to cities_path
+        else
+            render :new
+        end
     end
 
     def index
-        @citi_paramses = City.all
+        @cities = City.all
     end
 
     private
