@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
 
     def index
         find_user
-        @trips = @user.trips.all 
+        @trips = @user.reviews.all 
     end
 
     private
