@@ -1,0 +1,7 @@
+<h1> Edit Review </h1>
+<%= form_for :review, url: user_review_path, :method => 'patch' do |f| %>
+    <%= f.hidden_field :city_id %>
+    <%= f.text_field :city, value: @review.city.name %>
+    <% #render partial form from new %>
+    <% f.submit "Update Review" %>
+<% end %>

@@ -1,14 +1,14 @@
 <h1> New Review </h1>
 <p>
 <%= form_for :review, url: user_reviews_path do |f|%>
-    <div>
-    <%= f.label :city, "Select a city:" %>
-    <%= f.collection_select :city_id, City.order('name ASC'), :id, :name, :include_blank => true %>
-    </div>
     
+    <% if @city %>
+        <%= f.hidden_field :city_id, value: @city.id %>
+        <%= f.text_field :city, value: @city.name %>
+    <% else %>
+        <%= f.label :city, "Select a city:" %>
+        <%= f.collection_select :city_id, City.order('name ASC'), :id, :name, :include_blank => true %>
     <p> OR create a new city below: </p>
-
-     <div>
         <%= f.fields_for :city do |city_attributes| %>
             <%= f.label :city, "City Name"%>
             <%= city_attributes.text_field :city, placeholder: "City Name" %><br><br>
@@ -24,17 +24,13 @@
                 <%= city_attributes.text_field :state %>
             <% #end %>
         <% end %>
-    </div>
+        <% end %>
 
-    <div>
         <%= f.label :title %>
         <%= f.text_field :title %>
-    </div>
 
-    <div>
         <%= f.label :content %>
         <%= f.text_area :content %>
-    </div>
 
     <%= f.submit %>
 <% end %>
