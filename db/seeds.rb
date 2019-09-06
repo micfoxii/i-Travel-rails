@@ -6,6 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-cities = City.create([{name: 'Florence'}, {name: 'Naples'}, {name: 'Paris'}, {name: 'Austin'}])
+cities = City.create([{name: 'Florence', country_id: 2}, {name: 'Naples', country_id: 2}, {name: 'Paris', country_id: 3}, {name: 'Austin', country_id: 1, state_id: 4}, {name: 'Naples', country_id: 1, state_id: 1}])
 countries = Country.create([{name: 'United States'}, {name: 'Italy'}, {name: 'France'}])
-states = State.create([{name: 'Alaska', country_id: '1'}, {name: 'Alabama', country_id: '1'}, {name: 'Texas', country_id: '1'}])
+states = State.create([{name: 'Florida', country_id: 1}, {name: 'Alaska', country_id: 1}, {name: 'Alabama', country_id: 1}, {name: 'Texas', country_id: 1}])
