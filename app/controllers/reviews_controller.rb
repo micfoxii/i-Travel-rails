@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
         find_city
         @review = @user.reviews.build(review_params)
         if @review.save
-            redirect_to review_path(@review)
+            redirect_to user_reviews_path(@user)
         else
             render :new
         end

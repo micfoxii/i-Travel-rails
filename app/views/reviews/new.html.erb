@@ -2,38 +2,31 @@
 
 <p>
 <%= "Select Country, Select State if Country United States" %>
-<%= form_for :review do |f|%>
-    <p> Select a city: </p>
+<%= form_for :review, url: user_reviews_path do |f|%>
     <div>
-    <%= f.collection_select :city_id, City.order('name ASC'), :id, :name, :include_blank => true %>
+    <%= f.label :city, "Select a city:" %>
+    <%= f.collection_select :city_id, City.order('name ASC'), :id, :city, :include_blank => true %>
     </div>
+    
+    <p> OR create a new city below: </p>
 
-    // <div>
-    // <%= f.collection_select :state_id, State.order('name ASC'), :id, :name, :include_blank => true %>
-    // </div>
-
-    // <div>
-    // <%= f.collection_select :country_id, Country.order('name ASC'), :id, :name, :include_blank => true %>
-    // </div>
-
-    <p> Create a new city: </p>
-    <div>
+     <div>
         <%= f.fields_for :city do |city_attributes| %>
-            <%= city_attributes.text_field :name, placeholder: "City Name" %>
+            <%= f.label :city, "City Name"%>
+            <%= city_attributes.text_field :city, placeholder: "City Name" %><br><br>
+            <%= f.label :country, "Select Country"%>
+            <%= city_attributes.collection_select :country_id, Country.order('name ASC'), :id, :name, :include_blank => true %>
+            <%= f.label :country, "OR add new country:" %>
+            <%= city_attributes.text_field :country %>
+            
+            <% #if :country == "United States" TODO have states only show up if United States%>
+                <%= f.label :state, "Select State"%>
+                <%= city_attributes.collection_select :state_id, State.order('name ASC'), :id, :name, :include_blank => true %>
+                <%= f.label :state, "OR add a new state:"%>
+                <%= city_attributes.text_field :state %>
+            <% #end %>
         <% end %>
     </div>
-
-    // <div>
-        // <%= f.fields_for :state do |state_attributes| %>
-        //     <%= state_attributes.text_field :name, placeholder: "State Name" %>
-    //     <% end %>
-    // </div>
-
-    // <div>
-    //     <%= f.fields_for :country do |country_attributes| %>
-    //         <%= country_attributes.text_field :name, placeholder: "Country Name" %>
-    //     <% end %>
-    // </div>
 
     <div>
         <%= f.label :title %>
