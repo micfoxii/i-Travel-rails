@@ -3,5 +3,5 @@
     <%= f.hidden_field :city_id %>
     <%= f.text_field :city, value: @review.city.name, readonly: true %>
     <% #render partial form from new %>
-    <% f.submit "Update Review" %>
+    <%= f.submit "Update Review" %>
 <% end %>
