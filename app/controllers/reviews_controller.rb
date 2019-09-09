@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
 
     def index
         find_user
-        @trips = @user.reviews.all 
+        @reviews = @user.reviews.all 
     end
 
     def edit
@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
 
     def destroy
     end
-    
+
     private
 
     def find_user
@@ -51,6 +51,6 @@ class ReviewsController < ApplicationController
     end
     
     def review_params
-        params.require(:review).permit(:user_id, :title, :content, :city_id, city_attributes: [:city, :country, :country_id, :state, :state_id]) #, :state_id, state_attributes: [:name], :country_id, country_attributes: [:name])
+        params.require(:review).permit(:user_id, :title, :content, :city_id, city_attributes:[:city, :country, :country_id, :state, :state_id]) #, :state_id, state_attributes: [:name], :country_id, country_attributes: [:name])
     end
 end
