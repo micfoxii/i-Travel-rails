@@ -1,6 +1,7 @@
 <h1> <%= @user.name %>, view, edit, or delete you recorded destination reviews: </h1>
 
 <% @reviews.each do |review| %>
+<h3><%= link_to review.title, user_review_path(@user, review) %></h3>
 <%= link_to review.city.name, user_review_path(@user, review) %>
     <% if @user == current_user %>
 
