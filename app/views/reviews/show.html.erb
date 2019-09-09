@@ -1,5 +1,5 @@
 <h1> <%= @review.city.name %> </h1>
-<h4> <%= "State, County" %> </h4>
+<h4> <%= @review.city.state.name %> , <%=  @review.city.country.name %> </h4>
 
 <p>
 <%= @review.title %><br>
