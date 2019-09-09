@@ -13,6 +13,7 @@ class City < ApplicationRecord
     #   state = State.find_or_create_by(name: attributes[:state])
     else
       country = Country.find_by(id: attributes[:country_id])
+      # state = State.find_by(id: attributes[:state_id])
     end
     country.cities << city if city != "" && country != ""
     country.save if country != ""
@@ -20,5 +21,6 @@ class City < ApplicationRecord
     # state.save if state != ""
     self.city_id = city.id
   end
+end
 end
 end

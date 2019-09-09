@@ -18,10 +18,10 @@
             <%= city_attrib.text_field :country %>
             
             <% #if :country == "United States" TODO have states only show up if United States%>
-                <%= f.label :state, "Select State"%>
-                <%= city_attrib.grouped_collection_select :state_id, Country.order(:name), :states, :name, :id, :name, :include_blank => true %>
-                <%= f.label :state, "OR add a new state:"%>
-                <%= city_attrib.text_field :state %>
+                <%= # f.label :state, "Select State"%>
+                <%= # city_attrib.grouped_collection_select :state_id, Country.order(:name), :states, :name, :id, :name, :include_blank => true %>
+                <%= # f.label :state, "OR add a new state:"%>
+                <%= # city_attrib.text_field :state %>
             <% #end %>
         <% end %>
         <% end %>
