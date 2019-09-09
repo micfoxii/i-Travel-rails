@@ -28,6 +28,8 @@ class ReviewsController < ApplicationController
     end
 
     def edit
+        set_user
+        find_review
     end
 
     def update
