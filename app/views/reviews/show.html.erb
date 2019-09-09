@@ -1,6 +1,11 @@
 <h1> <%= @review.city.name %> </h1>
 <h4> <%= "State, County" %> </h4>
 
+<p>
+<%= @review.title %><br>
+<%= @review.content %>
+</p>
+
 <% if @user == current_user %>
 
     <%= "Edit Trip" %>
