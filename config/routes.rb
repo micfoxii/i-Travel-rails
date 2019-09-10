@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   
-  delete '/logout' => 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy', as: 'delete_user_session' #delete_user_session_path
 
   resources :users do
     resources :reviews
