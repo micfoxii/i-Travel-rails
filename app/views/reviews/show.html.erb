@@ -1,9 +1,14 @@
-<h1> <%= @review.city.city_state_country %> <%= @review.city.name %> </h1>
-<h4> <%= @review.city.country.name %> </h4>
+<h1><%= @review.title %></h1> 
+<h3><% if @user != current_user %> 
+        <%= @review.author %>
+    <% end %>
+</h3>
+<%# REFACTORED FROM TWO LINES %> <%# @review.city.name%> <%# @review.city.country.name %>
+<h4> <%= @review.city.city_state_country %>  </h4>
 
 <p>
 <%= @review.rating %><br>
-<%= @review.title %><br>
+<br>
 <%= @review.content %>
 </p>
 
