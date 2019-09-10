@@ -9,7 +9,7 @@
 
 <% if @user == current_user %>
 
-    <%= "Edit Trip" %>
-    <%= "Delete Trip" %>
+        <%= link_to "Edit Review", edit_user_review_url(@user, review), :method => 'get' %>
+        <%= "Delete Review" %>
 
 <% end %>
