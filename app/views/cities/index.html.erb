@@ -1,7 +1,8 @@
 <h1> Cities </h1>
 
 <ol>
+<%= "TODO DISPLAY CITIES ORGANIZED UNDER COUNTRIES"%><br>
 <% @cities.each do |city| %>
-    <li><%= city.name %>, <%= city.country.name %></li>
+    <%= "TODO HTML BULLET"%> - <%= link_to city.city_state_country, city_path(city) %>, <%= link_to city.country.name, city_path(city) %><br>
 <% end %>
 </ol>

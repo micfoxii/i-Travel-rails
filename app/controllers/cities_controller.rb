@@ -14,13 +14,17 @@ class CitiesController < ApplicationController
     end
 
     def index
-        @cities = City.all
+        @cities = City.order(:country_id)
+    end
+
+    def show
+        @city = City.find([params[:id]])
     end
 
     private
 
     def city_params
-        #params.require(:city).permit(:name, :country_id, country_name:[:country], :state_id, state_name:[:state])
+        params.require(:city).permit(:name, :country_id, country_name:[:country]) #, :state_id, state_name:[:state]
     end
     
 end
