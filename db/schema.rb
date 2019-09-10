@@ -15,11 +15,9 @@ ActiveRecord::Schema.define(version: 2019_09_04_192644) do
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.integer "country_id"
-    t.integer "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_cities_on_country_id"
-    t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -34,23 +32,10 @@ ActiveRecord::Schema.define(version: 2019_09_04_192644) do
     t.text "content"
     t.integer "user_id"
     t.integer "city_id"
-    t.integer "state_id"
-    t.integer "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_reviews_on_city_id"
-    t.index ["country_id"], name: "index_reviews_on_country_id"
-    t.index ["state_id"], name: "index_reviews_on_state_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "states", force: :cascade do |t|
-    t.string "name"
-    t.string "short_name"
-    t.integer "country_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["country_id"], name: "index_states_on_country_id"
   end
 
   create_table "users", force: :cascade do |t|

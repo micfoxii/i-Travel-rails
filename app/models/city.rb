@@ -1,6 +1,6 @@
 class City < ApplicationRecord
   belongs_to :state
-  belong_to :country
+  belongs_to :country
   
   has_many :reviews
   has_many :users, through: :reviews
@@ -9,6 +9,4 @@ class City < ApplicationRecord
     "#{self.name},  #{country.name}" # TODO ADD #{state.name}, IF COUNTRY US
   end
 
-
-end
 end

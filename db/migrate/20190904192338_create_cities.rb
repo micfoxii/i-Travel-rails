@@ -3,7 +3,6 @@ class CreateCities < ActiveRecord::Migration[5.2]
     create_table :cities do |t|
       t.string :name
       t.belongs_to :country, foreign_key: true
-      t.belongs_to :state, foreign_key: true
 
       t.timestamps
     end
