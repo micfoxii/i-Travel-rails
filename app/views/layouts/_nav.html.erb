@@ -1,9 +1,12 @@
 <nav>
     <div>
-        <%= link_to "iTravel", 'sessions#welcome' %>
-        <ul>
-            <li><%= link_to "Add New City Review", new_user_review_path(current_user) %></li>
-            <li><%= link_to "Your Cities", user_reviews_path(current_user) %></li>
+        <%= link_to "iTravel" %>
+        <ul class="right">
+            <%= link_to "Create Travel Review", new_user_review_path(current_user) %>
+            <%= link_to "Your Travels", user_reviews_path(current_user) %>
+            <%= "View Cities" %> 
+            <%= "View Countries" %> 
+            <%= link_to "Logout", logout_path%>
 
 
 
