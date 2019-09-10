@@ -1,10 +1,11 @@
 <h1> Cities </h1>
 
 <ol>
-<%= "TODO DISPLAY CITIES ORGANIZED UNDER COUNTRIES"%><br>
+<%= "TODO DISPLAY CITIES ORGANIZED UNDER COUNTRIES"%><br><br>
 <% @cities.each do |city| %>
     <%= "TODO HTML BULLET"%> - <%= link_to city.city_state_country, city_path(city)%> <br>
     Number of Review(s): <%= city.reviews.count %>  <br>
+    Average City Rating: <%= city.average_city_rating %><br><br>
     
 <% end %>
 </ol>

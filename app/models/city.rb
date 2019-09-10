@@ -9,4 +9,11 @@ class City < ApplicationRecord
     "#{self.name},  #{country.name}" # TODO ADD #{state.name}, IF COUNTRY US
   end
 
+  def average_city_rating
+    if self.reviews.count(:rating) == 0
+      "Be the first to rate this city!"
+    else
+      self.reviews.average(:rating).to_f.round(1) #TODO convert to glyphies stars in view
+    end
+  end
 end
