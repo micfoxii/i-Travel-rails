@@ -8,6 +8,9 @@
                 <%= link_to "View Cities", cities_path %> 
                 <%= link_to "View Countries", countries_path %> 
                 <%= link_to "Logout", delete_user_session_path, method: 'delete' %>
+            <% else %>
+                <%= link_to "Log In", login_path %>
+                <%= link_to "Sign Up", signup_path %>
             <% end %>
         </ul>
     </div>
