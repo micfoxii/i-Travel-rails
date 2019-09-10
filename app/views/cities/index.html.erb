@@ -1,7 +1,7 @@
 <h1> Cities </h1>
 
 <ol>
-    <% @cities.each do |city| %>
-        <li><%= city.name %></li>
-    <% end %>
+<% @cities.each do |city| %>
+    <li><%= city.name %>, <%= city.country.name %></li>
+<% end %>
 </ol>
