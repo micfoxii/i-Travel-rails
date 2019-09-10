@@ -3,6 +3,8 @@
 <ol>
 <%= "TODO DISPLAY CITIES ORGANIZED UNDER COUNTRIES"%><br>
 <% @cities.each do |city| %>
-    <%= "TODO HTML BULLET"%> - <%= link_to city.city_state_country, city_path(city) %><br>
+    <%= "TODO HTML BULLET"%> - <%= link_to city.city_state_country, city_path(city)%> <br>
+    Number of Review(s): <%= city.reviews.count %>  <br>
+    
 <% end %>
 </ol>
