@@ -1,2 +1,6 @@
-<h1> <%= @city.name %></h1>
-<%= @city.city_state_country %>
+<h1><%= @city.name %></h1>
+
+<% @city.reviews.each do |review| %>
+    <%= review.title %>
+
+<% end %>
