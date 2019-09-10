@@ -6,7 +6,7 @@
     <% if @user == current_user %>
 
         <%= link_to "Edit Review", edit_user_review_url(@user, review), :method => 'get' %>
-        <%= "Delete Review" %>
+        <%= link_to "Delete Review", user_review_path(@user, review), :method => 'delete' %>
         
     <% end %>
 <% end %>

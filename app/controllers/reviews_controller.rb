@@ -33,9 +33,14 @@ class ReviewsController < ApplicationController
     end
 
     def update
+
     end
 
     def destroy
+        set_user
+        find_review
+        @review.destroy
+        redirect_to user_reviews_path(@user)
     end
 
     private
