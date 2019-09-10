@@ -1,7 +1,8 @@
 <h1> <%= @review.city.name %> </h1>
-<h4> <%= @review.city.state.name %> , <%=  @review.city.country.name %> </h4>
+<h4> <%= @review.city.country.name %> </h4>
 
 <p>
+<%= @review.rating %><br>
 <%= @review.title %><br>
 <%= @review.content %>
 </p>

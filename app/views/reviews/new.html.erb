@@ -34,15 +34,10 @@
         <%= f.text_area :content %>
 
         <%= f.label :rating %>
-        <%= f.select :rating, (1..5)%>
+        <%= f.select :rating, (1..5), include_blank => true %>
 
     <%= f.submit %>
 <% end %>
-
-
-<%= "Rating" %><br>
-<%= "Title" %>
-<%= "Content" %><br>
 
 <%= "TODO Lodging, Restaurant, Attraction" %>
 
