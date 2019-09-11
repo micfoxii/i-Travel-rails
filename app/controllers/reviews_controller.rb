@@ -33,7 +33,13 @@ class ReviewsController < ApplicationController
     end
 
     def update
-
+        set_user
+        find_review
+        if @review.update(review_params)
+            redirect_to user_reviews_path(@user)
+        else
+            render :edit
+        end
     end
 
     def destroy
