@@ -1,8 +1,8 @@
 <h1><%= @review.title %></h1> 
-<h3><% if @user != current_user %> 
-        <%= @review.user.name %>
+<h5><% if @review.user != current_user %> 
+        By: <%= @review.user.name %>
     <% end %>
-</h3>
+</h5><br>
 <%# REFACTORED FROM TWO LINES %> <%# @review.city.name%> <%# @review.city.country.name %>
 <h4> <%= @review.city.city_state_country %>  </h4>
 
