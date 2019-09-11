@@ -1,13 +1,13 @@
 <h1><%= @review.title %></h1> 
 <h3><% if @user != current_user %> 
-        <%= @review.author %>
+        <%= @review.user.name %>
     <% end %>
 </h3>
 <%# REFACTORED FROM TWO LINES %> <%# @review.city.name%> <%# @review.city.country.name %>
 <h4> <%= @review.city.city_state_country %>  </h4>
 
 <p>
-<%= @review.rating %><br>
+Rating: <%= @review.rating %><br>
 <br>
 <%= @review.content %>
 </p>

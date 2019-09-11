@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  resources :cities do
+    resources :reviews
+  end
+
   resources :cities
   resources :states
   resources :countries
