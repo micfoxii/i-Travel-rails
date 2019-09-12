@@ -1,1 +1,7 @@
-<h1><%= Country.name %></h1>
+<h1><%= @country.name %></h1>
+
+<% @country.cities.each do |city| %>
+    <%= link_to city.name %> 
+    - number of reviews: 
+    <%= city.reviews.count %><br>
+<% end %>
