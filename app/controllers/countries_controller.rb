@@ -4,7 +4,7 @@ class CountriesController < ApplicationController
     end
 
     def index
-        @countries = Country.all 
+        @countries = Country.all.sorted
     end
 
     def show
