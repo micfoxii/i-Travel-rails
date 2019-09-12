@@ -3,10 +3,11 @@ class Review < ApplicationRecord
   belongs_to :city
   # has_one :state, through: :city
   # has_one :country, through: :state
-  validates :title, :presence true, length: {minimum: 5, maximum: 30}
-  validates :content, :presence true, length: {minimum: 25}
-  validates :rating, :presence true
-  
+
+  validates_length_of :title, minimum: 5, maximum: 30, allow_blank: false
+  validates_length_of :content, minimum: 30, allow_blank: false
+  # validates :rating, :presence true
+
   accepts_nested_attributes_for :city
 
   def city_attributes=(attributes)
@@ -20,11 +21,11 @@ class Review < ApplicationRecord
         country = Country.find_by(id: attributes[:country_id])
         # state = State.find_by(id: attributes[:state_id])
       end
-    country.cities << city if city != "" && country != "" #&& state != ""
-    country.save if country != ""
-    # state.save if state != ""
-    self.city_id = city.id
+      country.cities << city if city != "" && country != "" #&& state != ""
+      country.save if country != ""
+      # state.save if state != ""
+      self.city_id = city.id
+    end
   end
-end
 
 end
