@@ -5,7 +5,7 @@ class City < ApplicationRecord
   has_many :reviews
   has_many :users, through: :reviews
 
-  scope :search, -> (query, country) { query ? country.cities.where("name LIKE ?", "%#{query}%") : country.cities}
+  # scope :search, -> (query, city) { query ? city.where("name LIKE ?", "%#{query}%") : city}
 
   def city_state_country
     "#{self.name},  #{country.name}" # TODO ADD #{state.name}, IF COUNTRY US
