@@ -12,22 +12,22 @@ class Review < ApplicationRecord
   
   accepts_nested_attributes_for :city
 
-  def city_attributes=(attributes)
-    if attributes[:city] != ""
-      city = City.find_or_create_by(name: attributes[:city])
-      if attributes[:country] != ""
-        country = Country.find_or_create_by(name: attributes[:country])
-        # if attributes[:state] != ""
-        #   state = State.find_or_create_by(name: attributes[:state])
-      else
-        country = Country.find_by(id: attributes[:country_id])
-        # state = State.find_by(id: attributes[:state_id])
-      end
-      country.cities << city if city != "" && country != "" #&& state != ""
-      country.save if country != ""
-      # state.save if state != ""
-      self.city_id = city.id
-    end
-  end
+  # def city_attributes=(attributes)
+  #   if attributes[:city] != ""
+  #     city = City.find_or_create_by(name: attributes[:city])
+  #     if attributes[:country] != ""
+  #       country = Country.find_or_create_by(name: attributes[:country])
+  #       # if attributes[:state] != ""
+  #       #   state = State.find_or_create_by(name: attributes[:state])
+  #     else
+  #       country = Country.find_by(id: attributes[:country_id])
+  #       # state = State.find_by(id: attributes[:state_id])
+  #     end
+  #     country.cities << city if city != "" && country != "" #&& state != ""
+  #     country.save if country != ""
+  #     # state.save if state != ""
+  #     self.city_id = city.id
+  #   end
+  # end
 
 end

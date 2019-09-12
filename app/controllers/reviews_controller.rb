@@ -64,6 +64,6 @@ class ReviewsController < ApplicationController
     end
     
     def review_params
-        params.require(:review).permit(:user_id, :rating, :title, :content, :city_id, city_attributes:[:city, :country, :country_id]) #TO DO ADD STATE, :state, :state_id OR state_attributes: [:name], :country_id, country_attributes: [:name])
+        params.require(:review).permit(:user_id, :rating, :title, :content, :city_id, cities_attributes:[:name, :country_id]) #TO DO ADD STATE, :state, :state_id OR state_attributes: [:name], :country_id, country_attributes: [:name])
     end
 end
