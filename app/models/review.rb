@@ -3,7 +3,10 @@ class Review < ApplicationRecord
   belongs_to :city
   # has_one :state, through: :city
   # has_one :country, through: :state
-
+  validates :title, :presence true, length: {minimum: 5, maximum: 30}
+  validates :content, :presence true, length: {minimum: 25}
+  validates :rating, :presence true
+  
   accepts_nested_attributes_for :city
 
   def city_attributes=(attributes)
