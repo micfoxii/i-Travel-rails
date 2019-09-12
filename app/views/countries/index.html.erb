@@ -2,6 +2,7 @@
 
 <ol>
     <% @countries.each do |country| %>
-        <li><%= country.name %></li>
+        <li><%= link_to country.name, country_path(country) %></li>
+        
     <% end %>
 </ol>
