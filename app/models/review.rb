@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :city
+  belongs_to :country
   # has_one :state, through: :city
   # has_one :country, through: :state
 
@@ -11,6 +12,7 @@ class Review < ApplicationRecord
   scope :most_recent, -> (limit) {order("created_at desc").limit(limit)}
   
   accepts_nested_attributes_for :city
+  accepts_nested_attributes_for :country 
 
   # def city_attributes=(attributes)
   #   if attributes[:city] != ""

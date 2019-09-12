@@ -7,9 +7,9 @@
             <%= f.label :city, "Select a city:" %>
             <%= f.collection_select :city_id, City.order('name ASC'), :id, :city_state_country, :include_blank => true %>
         <p> OR create a new city below: </p>
-            <%= f.fields_for :city_attributes do |city_attrib| %>
-                <%= f.label :city, "City Name"%>
-                <%= city_attrib.text_field :city, placeholder: "City Name" %><br><br>
+            <%= f.fields_for :city do |city_attrib| %>
+                <%= f.label :name, "City Name"%>
+                <%= city_attrib.text_field :name, placeholder: "City Name" %><br><br>
 
                 <% #Select or Create Country %>
                 <%= f.label :country, "Select Country"%>
@@ -17,11 +17,6 @@
                 <%= f.label :country, "OR add new country:" %>
                 <%= city_attrib.text_field :country %>
                 
-                <% #TODO have states only show up if United States %>
-                    <%# <%= f.label :state, "Select State"%> %>
-                    <%# <%= city_attrib.grouped_collection_select :state_id, Country.order(:name), :states, :name, :id, :name, :include_blank => true %> %>
-                    <%# <%= f.label :state, "OR add a new state:"%> %>
-                    <%# <%= city_attrib.text_field :state %> %>
                 <% end %>
             <% end %>
     </div>
