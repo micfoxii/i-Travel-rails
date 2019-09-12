@@ -1,5 +1,9 @@
 <h1> Cities </h1>
 
+    <%= form_tag  country_cities_path(@country), method: "get" do %>
+        <%= text_field_tag :query %>
+        <%= submit_tag :search, class: 'btn' %>
+    <% end %>
 <ol>
 <%= "TODO DISPLAY CITIES ORGANIZED UNDER COUNTRIES"%><br><br>
 <% @cities.each do |city| %>
