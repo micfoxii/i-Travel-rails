@@ -2,6 +2,7 @@ class CitiesController < ApplicationController
 
     def new
         @city = City.new
+        @city.build_country
     end
 
     def create
@@ -25,7 +26,7 @@ class CitiesController < ApplicationController
     private
 
     def city_params
-        params.require(:city).permit(:name, :country_id, countries_attributes:[:id, :name]) #, :state_id, state_name:[:state]
+        params.require(:city).permit(:name, :country_id, country_attributes:[:id, :name]) #, :state_id, state_name:[:state]
     end
     
 end

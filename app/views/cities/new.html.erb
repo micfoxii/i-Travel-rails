@@ -7,14 +7,20 @@
     </div>
 
     <p> Select an existing country: </p>
-    
+
     <div>
-    <%= f.fields_for :cities do |c|%>
-        <%= c.collection_select(:country_id, Country.order('name ASC'), :id, :name, :include_blank => true)%>
-    <% end %>
+    <%= f.collection_select(:country_id, Country.order('name ASC'), :id, :name, :include_blank => true)%>
     </div>
 
     <p> OR create a new country: </p>
+
+    <div>
+        <%= fields_for :country do |c| %>
+            <%= c.label :name, 'Country Name: '%>
+            <%= c.text_field :name %>
+        <% end %>
+
+    </div>
 
     <%= f.submit %>
 <% end %>
