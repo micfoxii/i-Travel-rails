@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :city
-  # belongs_to :country
+  belongs_to :country
   # has_one :country, through: :state
 
   # validates_length_of :title, minimum: 5, maximum: 30, allow_blank: false
