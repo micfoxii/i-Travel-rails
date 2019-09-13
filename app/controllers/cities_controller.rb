@@ -15,7 +15,6 @@ class CitiesController < ApplicationController
     end
 
     def index
-        # @cities = City.search(params[:query], @city)
         @cities = City.search(params[:query]).order(:country_id) # TODO CURRENTLY ORDER BY COUNTRY ID, WANT TO SORT BY COUNTRY THEN CITY
     end
 
@@ -26,7 +25,7 @@ class CitiesController < ApplicationController
     private
 
     def city_params
-        params.require(:city).permit(:name, :country_id, country_attributes:[:id, :name]) #, :state_id, state_name:[:state]
+        params.require(:city).permit(:name, :country_id, country_attributes:[:id, :name])
     end
     
 end
