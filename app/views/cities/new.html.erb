@@ -1,4 +1,4 @@
-<h1> Create a New City </h1>
+<h1> Add a new city: </h1>
 
 <%= form_for(@city) do |f| %>
     <div>
@@ -6,21 +6,11 @@
     <%= f.text_field :name %>
     </div>
 
-    <p> Select an existing country: </p>
+    <p> Add country to city: </p>
 
     <div>
     <%= f.collection_select(:country_id, Country.order('name ASC'), :id, :name, :include_blank => true)%>
-    </div>
-
-    <p> OR create a new country: </p>
-
-    <div>
-        <%= fields_for :country do |c| %>
-            <%= c.label :name, 'Country Name: '%>
-            <%= c.text_field :name %>
-        <% end %>
-
-    </div>
+    </div><br>
 
     <%= f.submit %>
 <% end %>
