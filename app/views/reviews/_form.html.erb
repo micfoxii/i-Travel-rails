@@ -7,14 +7,14 @@
             <%= f.label :city, "Select a city:" %>
             <%= f.collection_select :city_id, City.order('name ASC'), :id, :city_state_country, :include_blank => true %>
         <p> OR create a new city below: </p>
-            <%= f.fields_for :city do |city_attrib| %>
-                <%= f.label :name, "City Name"%>
-                <%= city_attrib.text_field :name, placeholder: "City Name" %><br><br>
+            <%= f.fields_for :city do |c| %>
+                <%= c.label :name, "City Name"%>
+                <%= c.text_field :name, placeholder: "City Name" %><br><br>
 
                 <% #Select or Create Country %>
-                <%= f.label :country, "Select Country"%>
+                <%= city_attrib.label :country, "Select Country"%>
                 <%= city_attrib.collection_select :country_id, Country.order('name ASC'), :id, :name, :include_blank => true %>
-                <%= f.label :country, "OR add new country:" %>
+                <%= city_attrib.label :country, "OR add new country:" %>
                 <%= city_attrib.text_field :country %>
                 
                 <% end %>

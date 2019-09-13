@@ -3,6 +3,7 @@ class Country < ApplicationRecord
     has_many :cities
     has_many :reviews, through: :cities
 
+    validates :name, presence: true, uniqueness: true
     # default_scope {order(created_at: :desc)}
     # scope :ordered_by_name, -> {order(name: :asc)}
 

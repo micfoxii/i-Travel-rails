@@ -1,1 +1,6 @@
 <h1> Create New Destination </h1>
+
+<%= form_tag @destinations do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit 'Create' %>
+<% end %>

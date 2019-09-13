@@ -6,8 +6,8 @@ class CountriesController < ApplicationController
 
     def create
         @country = Country.new(country_params)
-        if @blog.save
-            redirect_to countries_path
+        if @country.save
+            redirect_to country_path
         else
             render :new
         end
@@ -20,4 +20,10 @@ class CountriesController < ApplicationController
     def show
         @country = Country.find(params[:id])
     end
+end
+
+private
+
+def country_params
+    params.require(:country).permit(:name, :id)
 end
