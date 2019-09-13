@@ -6,9 +6,15 @@
     <%= f.text_field :name %>
     </div>
 
+    <p> Select an existing country: </p>
+    
     <div>
-    <%= f.collection_select :country_id, Country.all, :name, include_blank: => true %>
+    <%= f.fields_for :cities do |c|%>
+        <%= c.collection_select(:country_id, Country.order('name ASC'), :id, :name, :include_blank => true)%>
+    <% end %>
     </div>
+
+    <p> OR create a new country: </p>
 
     <%= f.submit %>
 <% end %>
