@@ -9,7 +9,7 @@ class CountriesController < ApplicationController
     def create
         @country = Country.new(country_params)
         if @country.save
-            redirect_to new_user_city_path
+            redirect_to new_city_path
         else
             render :new
         end
