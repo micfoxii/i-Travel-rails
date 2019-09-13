@@ -5,6 +5,8 @@ class City < ApplicationRecord
   has_many :reviews
   has_many :users, through: :reviews
 
+  accepts_nested_attributes_for :country
+
   scope :search, -> (query) { query ? City.where("name LIKE ?", "%#{query}%") : City.all }
 
   def city_state_country
