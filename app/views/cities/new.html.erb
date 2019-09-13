@@ -1,1 +1,8 @@
-<h1> New City </h1>
+<h1> Create a New City </h1>
+
+<% form_for(@city) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+
+<% end %>
