@@ -1,5 +1,5 @@
 class CountriesController < ApplicationController
-
+    before_action :redirect_if_not_logged_in
     def new
         @country = Country.new
     end
