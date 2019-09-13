@@ -2,17 +2,17 @@
 
 <%= form_for(@city) do |f| %>
     <p> Select Country Location of City: </p>
+
     <div>
-    <%= f.collection_select(:country_id, Country.order('name ASC'), :id, :name, :include_blank => true)%>
+    <%= f.collection_select(:country_id, Country.sort, :id, :name, :include_blank => true)%>
     </div><br>
     
+    <p> Don't see your Country? Add New Country: </p>
+
     <div>
     <%= f.label :name, "City Name: " %>
     <%= f.text_field :name %>
     </div>
-
-    
-
 
     <%= f.submit %>
 <% end %>
