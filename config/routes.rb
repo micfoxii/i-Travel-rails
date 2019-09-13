@@ -14,9 +14,10 @@ Rails.application.routes.draw do
   end
 
   resources :cities do
-    resources :reviews
+    resources :reviews, only: [:new, :index]
   end
 
+  resources :reviews
   resources :states
   resources :countries
   

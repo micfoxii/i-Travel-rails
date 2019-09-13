@@ -1,17 +1,19 @@
 class ReviewsController < ApplicationController
+    before_action :redirect_if_not_logged_in
 
     def new
-        set_user
-        find_city
-        @review = Review.new
+        # set_user
+        if find_city
+            @review = @city.reviews.build
+        else
+            @review = Review.new
+        end
     end
 
     def create
-        set_user
-        find_city
-        @review = @user.reviews.build(review_params)
+        @review = current_user.reviews.build(review_params)
         if @review.save
-            redirect_to user_reviews_path(@user)
+            redirect_to user_reviews_path(current_user)
         else
             render :new
         end
@@ -59,11 +61,15 @@ class ReviewsController < ApplicationController
         @city = City.find_by(id: params[:city_id])
     end
 
+    def find_country
+        @country = Country.find_by(id: params[:country_id])
+    end
+
     def find_review
         @review = Review.find(params[:id])
     end
     
     def review_params
-        params.require(:review).permit(:user_id, :rating, :title, :content, :city_id, cities:[:name, :country_id]) #TO DO ADD STATE, :state, :state_id OR state_attributes: [:name], :country_id, country_attributes: [:name])
+        params.require(:review).permit(:user_id, :rating, :title, :content, :city_id, city_attributes:[:name, :country_id]) #TO DO ADD STATE, :state, :state_id OR state_attributes: [:name], :country_id, country_attributes: [:name])
     end
 end
