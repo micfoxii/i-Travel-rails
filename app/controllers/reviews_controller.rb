@@ -41,6 +41,7 @@ class ReviewsController < ApplicationController
 
     def update
         set_user
+        find_city
         find_review
         if @review.update(review_params)
             redirect_to user_reviews_path(@user)
@@ -51,6 +52,7 @@ class ReviewsController < ApplicationController
 
     def destroy
         set_user
+        find_city
         find_review
         @review.destroy
         redirect_to user_reviews_path(@user)

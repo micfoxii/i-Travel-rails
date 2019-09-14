@@ -12,9 +12,9 @@ Rating: <%= @review.rating %><br>
 <%= @review.content %>
 </p>
 
-<% if @user == current_user %>
+<% if @review.user == current_user %>
 
-        <%= link_to "Edit Review", edit_user_review_url %>
-        <%= link_to "Delete Review", user_review_path, :method => 'delete' %>
+        <%= link_to "Edit Review", edit_review_path(@review) %>
+        <%= link_to "Delete Review", review_path, :method => 'delete' %>
 
 <% end %>

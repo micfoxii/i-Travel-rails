@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :cities do
-    resources :reviews, only: [:new, :index]
+    resources :reviews
   end
 
   resources :countries do
