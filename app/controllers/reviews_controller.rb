@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
         if @city = City.find_by_id(params[:city_id])
             @reviews = @city.reviews
         else
-            @review = Review.all
+            @reviews = Review.all
         end
     end
 
