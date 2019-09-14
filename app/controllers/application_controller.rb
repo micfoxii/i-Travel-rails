@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :set_user, :is_logged_in?
+    helper_method :current_user, :set_user, :is_logged_in?, :redirect_if_logged_in
 
 
     private 
@@ -20,4 +20,7 @@ class ApplicationController < ActionController::Base
         redirect_to '/' if !is_logged_in?
     end
 
+    def redirect_if_logged_in 
+        redirect_to user_path if is_logged_in?
+    end
 end
