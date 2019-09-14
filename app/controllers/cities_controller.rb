@@ -11,6 +11,7 @@ class CitiesController < ApplicationController
         if @city.save
             redirect_to new_user_review_path(current_user)
         else
+            @city.build_country
             render :new
         end
     end
@@ -26,7 +27,7 @@ class CitiesController < ApplicationController
     private
 
     def city_params
-        params.require(:city).permit(:name, :country_id, country_attributes:[:id, :name])
+        params.require(:city).permit(:name, :country_id, country_attributes:[:name])
     end
     
 end
