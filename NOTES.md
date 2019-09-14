@@ -12,3 +12,20 @@
 [] Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
 
 [X] You must include and make use of a nested resource with the appropriate RESTful URLs.
+
+Review index when nested under user/reviews
+<!-- <h3> <%= @user.name %>, view, edit, or delete you recorded destination reviews: </h3>
+
+<% @reviews.each do |review| %>
+    <h4><%= link_to review.title, user_review_path(@user, review) %></h4>
+    <%= review.created_at %><br>
+    <% if @user == current_user %>
+            <%= link_to "Edit Review", edit_user_review_url(@user, review), :method => 'get' %>
+            <%= link_to "Delete Review", user_review_path(@user, review), :method => 'delete' %>        
+    <% end %>
+        <h6> Check out other reviews for <%= link_to review.city.city_state_country, user_review_path(@user, review) %></h6>
+<% end %><br>
+
+
+
+<%= link_to "Add New Review", new_user_review_path(current_user) -->

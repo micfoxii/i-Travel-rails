@@ -5,7 +5,7 @@
 
 <h5> Most Recent City Reviews </h5> <%# TO DO ONLY DISPLAY TOP 5 CITIES %>
 <% @city.reviews.each do |review| %>
-    <%= link_to review.title, city_review_path(@city, review) %><br> <%# TO DO ADD LINK TO REVIEW %>
+    <%= link_to review.title, city_reviews_path(@city, review) %><br> <%# TO DO ADD LINK TO REVIEW %>
     <%= review.created_at %><br>
     <% if review.rating != nil %>
         Rating: <%= review.rating %><br>
