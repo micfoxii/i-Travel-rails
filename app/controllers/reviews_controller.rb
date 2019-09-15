@@ -25,8 +25,6 @@ class ReviewsController < ApplicationController
     end
 
     def index
-        # find_user
-        # @reviews = @user.reviews.all 
         if @city = City.find_by_id(params[:city_id])
             @reviews = @city.reviews.most_recent
         else
