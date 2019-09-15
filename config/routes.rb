@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   
   delete '/logout', to: 'sessions#destroy', as: 'delete_user_session' #delete_user_session_path
 
+  get '/auth/facebook/callback' => 'sessions#create'
+  
   resources :users do
     resources :reviews
   end
