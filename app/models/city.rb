@@ -8,6 +8,7 @@ class City < ApplicationRecord
   accepts_nested_attributes_for :country
 
   scope :search, -> (query) { query ? City.where("name LIKE ?", "%#{query}%") : City.all }
+  
 
   def city_state_country
     "#{self.name},  #{country.name}" # TODO ADD #{state.name}, IF COUNTRY US

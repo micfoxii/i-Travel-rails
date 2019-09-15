@@ -6,7 +6,7 @@ class Review < ApplicationRecord
   # validates_length_of :content, minimum: 30, allow_blank: false
   # validates :rating, :presence true
 
-  scope :most_recent, -> (limit) {order("created_at desc").limit(limit)}
+  scope :most_recent, -> {order("created_at desc")}
   
   
   accepts_nested_attributes_for :city

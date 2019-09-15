@@ -17,7 +17,7 @@ class CitiesController < ApplicationController
     end
 
     def index
-        @cities = City.search(params[:query]).order(:country_id) # TODO CURRENTLY ORDER BY COUNTRY ID, WANT TO SORT BY COUNTRY THEN CITY
+        @cities = City.search(params[:query]).order(:name) # TODO CURRENTLY ORDER BY COUNTRY ID, WANT TO SORT BY COUNTRY THEN CITY
     end
 
     def show
