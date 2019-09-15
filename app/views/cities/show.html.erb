@@ -8,9 +8,13 @@
 
 <p><%= link_to "All Reviews for #{@city.city_state_country}", city_reviews_path(@city) %></p><br>
 
+<% @city.reviews.each do |review| %>
+    <h4><%= link_to review.title,  review_path(@city, review) %></h4>
+    <%= review.created_at %><br>
+
+<% end %>
+
 <h5><%= "5 Star Reviews for #{@city.city_state_country}" %></h5>
-
-
 
 <% @city.reviews.limit(5).each do |review| %>
 <% if review.rating == 5 %>
