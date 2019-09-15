@@ -7,7 +7,7 @@ class CitiesController < ApplicationController
     end
 
     def create
-        @city = City.create(city_params)
+        @city = City.new(city_params)
         if @city.save
             redirect_to new_user_review_path(current_user)
         else

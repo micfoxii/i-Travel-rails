@@ -1,4 +1,4 @@
-<h1> New Review </h1>
+<h1> New Review <%= "for #{@city.city_state_country}" if @city %></h1>
 <p>
 <%= render partial: 'form', locals: {user: @user, review: @review, button_name: "Create Review"}%>
 
