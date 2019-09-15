@@ -1,12 +1,15 @@
 <% if @city %>
         <h1> <%= @city.name %>, <%= @city.country.name %></h1>
         <h4><%= " #{@city.average_city_rating} average rating " %></h4>
+        <p>
+        <%= link_to "Create Review for #{@city.city_state_country}", new_city_review_path(@city) %>
+        </p>
 <% else %>
         <h1> Reviews for All Cities </h1><br>
 <% end %><br>
 
 <% @reviews.each do |review| %>
-    <h4><%= link_to review.title,  review_path(review) %></h4>
+    <h4><%= link_to review.title,  city_review_path(@city, review) %></h4>
     <%= review.created_at %><br>
 
 <% end %>

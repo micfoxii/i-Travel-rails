@@ -18,4 +18,4 @@ Rating: <%= @review.rating %><br>
 <% end %><br>
 
 <%= link_to "View #{@review.city.name} Reviews", city_reviews_path(@review) %><br>
-<%= link_to "View to All Reviews" %>
+<%= link_to "View to All Reviews", review_path %>
