@@ -8,6 +8,7 @@ class City < ApplicationRecord
   accepts_nested_attributes_for :country
 
   scope :search, -> (query) { query ? City.where("name LIKE ?", "%#{query}%") : City.all }
+  scope :top_rated, -> {left_joins(:reviews).group(:id).where('rating IS 5')}
 
   def city_state_country
     "#{self.name},  #{country.name}" # TODO ADD #{state.name}, IF COUNTRY US

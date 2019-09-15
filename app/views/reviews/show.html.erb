@@ -13,8 +13,9 @@ Rating: <%= @review.rating %><br>
 </p>
 
 <% if @review.user == current_user %>
-
         <%= link_to "Edit Review", edit_review_path(@review) %>
         <%= link_to "Delete Review", review_path, :method => 'delete' %>
+<% end %><br>
 
-<% end %>
+<%= link_to "View #{@review.city.name} Reviews", city_reviews_path(@review) %><br>
+<%= link_to "View to All Reviews" %>

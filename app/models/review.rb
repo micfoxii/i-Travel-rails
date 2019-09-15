@@ -8,6 +8,7 @@ class Review < ApplicationRecord
 
   scope :most_recent, -> (limit) {order("created_at desc").limit(limit)}
   
+  
   accepts_nested_attributes_for :city
   
 

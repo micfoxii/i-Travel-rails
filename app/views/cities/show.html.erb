@@ -1,11 +1,19 @@
 <h1><%= @city.city_state_country %></h1>
 <h3><%= @city.average_city_rating %></h3><br>
 
-<%# TO DO ADD FORM WITH CITY ALREADY POPULATED %>
+<p>
+<%= link_to "Create Review for #{@city.city_state_country}", new_city_review_path(@city) %>
+</p>
 
-<h5> Most Recent City Reviews </h5> <%# TO DO ONLY DISPLAY TOP 5 CITIES %>
-<% @city.reviews.each do |review| %>
-    <%= link_to review.title, city_reviews_path(@city, review) %><br> <%# TO DO ADD LINK TO REVIEW %>
+<p><%= link_to "All Reviews for #{@city.city_state_country}", city_reviews_path(@city) %></p><br>
+
+<h5><%= "Top Rated Reviews for #{@city.city_state_country}" %></h5>
+
+
+
+<% @city.reviews.limit(5).each do |review| %>
+<% if review.rating >= 4 %>
+    <%= review.title %><br> <%# TO DO ADD LINK TO REVIEW %>
     <%= review.created_at %><br>
     <% if review.rating != nil %>
         Rating: <%= review.rating %><br>
@@ -13,3 +21,6 @@
     <%= review.content %><br>
     <br>
 <% end %>
+<% end %>
+
+
