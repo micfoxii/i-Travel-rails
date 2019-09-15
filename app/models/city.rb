@@ -11,7 +11,7 @@ class City < ApplicationRecord
   
 
   def city_state_country
-    "#{self.name},  #{country.name}" # TODO ADD #{state.name}, IF COUNTRY US
+    "#{self.name},  #{country.name}"
   end
 
   def average_city_rating
