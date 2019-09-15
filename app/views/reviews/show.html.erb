@@ -17,5 +17,4 @@ Rating: <%= @review.rating %><br>
         <%= link_to "Delete Review", review_path, :method => 'delete' %>
 <% end %><br>
 
-<%= link_to "View #{@review.city.name} Reviews", city_reviews_path(@review) %><br>
-<%= link_to "View to All Reviews", review_path %>
+<%= link_to "Return to #{@review.city.name} Reviews", city_reviews_path %><br>
