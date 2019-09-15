@@ -1,6 +1,6 @@
 <% if @city %>
         <h1> <%= @city.name %>, <%= @city.country.name %></h1>
-        <%= @city.average_city_rating %><br>
+        <h4><%= " #{@city.average_city_rating} average rating " %></h4>
 <% else %>
         <h1> Reviews for All Cities </h1><br>
 <% end %><br>
