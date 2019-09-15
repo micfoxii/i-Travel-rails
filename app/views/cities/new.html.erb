@@ -4,6 +4,7 @@
     <p> Select Country Location of City: </p>
 
     <div>
+    <%= f.label :country %>
     <%= f.collection_select(:country_id, Country.order('name ASC'), :id, :name, :include_blank => true)%>
     </div><br>
     
@@ -14,7 +15,7 @@
         <%= c.label :name, 'Country Name' %>
         <%= c.text_field :name %>
     <% end %>
-    </div>   
+    </div> 
 
     <div>
     <%= f.label :name, 'City Name: ' %>

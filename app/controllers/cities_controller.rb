@@ -30,4 +30,7 @@ class CitiesController < ApplicationController
         params.require(:city).permit(:name, :country_id, country_attributes:[:name])
     end
     
+    def find_country
+        @country = Country.find_by(id: params[:country_id])
+    end
 end

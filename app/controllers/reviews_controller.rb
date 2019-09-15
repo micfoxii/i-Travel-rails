@@ -66,9 +66,9 @@ class ReviewsController < ApplicationController
         @city = City.find_by(id: params[:city_id])
     end
 
-    def find_country
-        @country = Country.find_by(id: params[:country_id])
-    end
+    # def find_country
+    #     @country = Country.find_by(id: params[:country_id])
+    # end
 
     def find_review
         @review = Review.find(params[:id])
