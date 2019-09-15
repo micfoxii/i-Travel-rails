@@ -6,11 +6,20 @@
 <%= link_to "Create Review for #{@city.city_state_country}", new_city_review_path(@city) %>
 </p>
 
-<% @city.reviews.order('created_at DESC').each do |review| %>
-    <h4><%= link_to review.title,  review_path(@city, review) %></h4>
-    <%= review.created_at %><br>
-    <% if review.rating != nil %>
-        Rating: <%= review.rating %><br><br>
+<p><%= link_to "All Reviews for #{@city.city_state_country}", city_reviews_path(@city) %></p><br>
+
+<h5><%= "5 Star Reviews for #{@city.city_state_country}" %></h5>
+
+
+
+    <% @city.reviews.most_recent.top_rated.limit(5).each do |review|  %>
+        <%= review.title %><br> <%# TO DO ADD LINK TO REVIEW %>
+        <%= review.created_at %><br>
+        <% if review.rating != nil %>
+            Rating: <%= review.rating %><br>
+        <% end %>
+        <%= review.content %><br><br>
     <% end %>
 
-<% end %><br>
+
+

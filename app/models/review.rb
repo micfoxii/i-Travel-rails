@@ -7,6 +7,7 @@ class Review < ApplicationRecord
   # validates :rating, :presence true
 
   scope :most_recent, -> {order("created_at desc")}
+  scope :top_rated, -> {where("rating >=4").order("rating desc")}
   
   
   accepts_nested_attributes_for :city
