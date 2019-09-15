@@ -1,5 +1,6 @@
 <h1><%= @city.city_state_country %></h1>
-<h3><%= @city.average_city_rating %></h3><br>
+<h4><%= " #{@city.average_city_rating} average rating from #{@city.city_review_count} reviews "%></h4>
+<br>
 
 <p>
 <%= link_to "Create Review for #{@city.city_state_country}", new_city_review_path(@city) %>
@@ -7,12 +8,12 @@
 
 <p><%= link_to "All Reviews for #{@city.city_state_country}", city_reviews_path(@city) %></p><br>
 
-<h5><%= "Top Rated Reviews for #{@city.city_state_country}" %></h5>
+<h5><%= "5 Star Reviews for #{@city.city_state_country}" %></h5>
 
 
 
 <% @city.reviews.limit(5).each do |review| %>
-<% if review.rating >= 4 %>
+<% if review.rating == 5 %>
     <%= review.title %><br> <%# TO DO ADD LINK TO REVIEW %>
     <%= review.created_at %><br>
     <% if review.rating != nil %>
