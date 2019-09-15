@@ -1,6 +1,6 @@
 <nav>
     <div>
-        <%= link_to "iTravel" %>
+        <%= link_to "iTravel", user_path(current_user) %> - <%= current_user.name %>
         <ul>
             <% if is_logged_in? %>
                 <%= link_to "Create Travel Review", new_user_review_path(current_user) %>
