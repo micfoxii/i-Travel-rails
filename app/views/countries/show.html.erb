@@ -1,8 +1,8 @@
 <h1><%= @country.name %></h1>
 
 <% @country.cities.each do |city| %>
-    <%= link_to city.name, country_city_path(@city.country_id) %> 
+    <%= link_to city.name, country_city_path(@country, city) %> 
     - number of reviews: 
     <%= city.reviews.count %><br>
-    <%= city.average_city_rating%>
+    <%= city.average_city_rating%><br><br>
 <% end %>

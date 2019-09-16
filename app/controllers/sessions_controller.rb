@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
             @user = User.find_or_create_by_facebook_omniauth(auth)
             if @user.id
                 session[:user_id] = @user.id
-                flash[:notify] = "Logged In"
+                flash[:notice] = "Logged In"
                 redirect_to user_path(@user)
             else
                 flash[:alert] = display_errors(@user)
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
             if @user.try(:authenticate, params[:user][:password])
                 session[:user_id] = @user.id 
-                flash[:notify] = "Logged In"
+                flash[:notice] = "Logged In"
                 redirect_to user_path(@user)
             else
                 flash.now[:alert] = "Incorrect Login"

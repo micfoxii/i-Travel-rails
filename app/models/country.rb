@@ -1,11 +1,9 @@
 class Country < ApplicationRecord
-    # has_many :states
+    #validation did not work when referencing id in nested table
+    # validates :name, presence: true, uniqueness: true
+    
     has_many :cities
     has_many :reviews, through: :cities
-
-    validates :name, presence: true, uniqueness: true
-    # default_scope {order(created_at: :desc)}
-    # scope :ordered_by_name, -> {order(name: :asc)}
 
     scope :sorted, -> {order("countries.name ASC")}
 end

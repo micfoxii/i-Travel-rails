@@ -18,6 +18,7 @@ class User < ApplicationRecord
         end
         user
     end
+    
     # Take email to create username handle
     # def get_email
     #     self.email.gsub(/\@.*/, "")

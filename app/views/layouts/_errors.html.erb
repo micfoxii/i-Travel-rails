@@ -1,6 +1,9 @@
-<div id="main">
-      <div id="main_padding">
-          <%= flash_div :warning, :notice, :error %>
-          <%= yield %>
-      </div>
-</div>
+<% if flash[:error] || flash[:success] || flash[:notice] || flash[:warning] %>
+  <div class="errors">
+    <ul>
+      <% if flash[:error] %>
+      <li><%= flash[:error] %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
