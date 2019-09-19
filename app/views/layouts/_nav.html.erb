@@ -5,6 +5,7 @@
             <% if is_logged_in? %>
                 <%= link_to "iTravel", user_path(current_user) %> - <%= current_user.name%>
                 <%= link_to "Create Travel Review", new_user_review_path(current_user) %>
+                <%= link_to "Your Reviews", user_reviews_path(current_user)%>
                 <%= link_to "All Reviews", reviews_path %>
                 <%= link_to "View Cities", cities_path %> 
                 <%= link_to "View Countries", countries_path %> 

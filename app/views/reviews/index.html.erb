@@ -4,6 +4,8 @@
         <p>
         <%= link_to "Create Review for #{@city.city_state_country}", new_city_review_path(@city) %>
         </p>
+<% elsif @user %>
+        <h1> <%= @user.name %>, here are your reviews! </h1>
 <% else %>
         <h1> Reviews for All Cities </h1><br>
 <% end %><br>
