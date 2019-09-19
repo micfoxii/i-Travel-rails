@@ -7,4 +7,7 @@ class Country < ApplicationRecord
 
     scope :sorted, -> {order("countries.name ASC")}
     
+    private
+
+    
 end

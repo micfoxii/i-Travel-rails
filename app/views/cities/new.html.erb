@@ -4,17 +4,19 @@
     <p> Select Country Location of City: </p>
 
     <div>
-    <%= f.label :country %>
+    <%= f.label :country_id %>
     <%= f.collection_select(:country_id, Country.order('name ASC'), :id, :name, :include_blank => true)%>
     </div><br>
     
-    <p> Don't see your Country? Add New Country: </p>
+    <p> Don't see your Country? <%= link_to "Create Country Here", new_country_path %> </p>
 
     <div>
-    <%= f.fields_for :country do |c|%>
-        <%= c.label :name, 'Country Name' %>
-        <%= c.text_field :name %>
-    <% end %>
+    
+    <%# could not get this to work with the collection select %>
+    <%#= f.fields_for :country do |c|%>
+        <%#= c.label :name, 'Country Name' %>
+        <%#= c.text_field :name %>
+    <%# end %>
     </div> 
 
     <div>

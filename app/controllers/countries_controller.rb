@@ -23,6 +23,7 @@ class CountriesController < ApplicationController
         @country = Country.find(params[:id])
     end
 
+    
 
     private
 
