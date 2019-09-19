@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
             flash[:success] = "Review Saved!"
             redirect_to user_reviews_path(current_user)
         else
-            flash[:error] = "Unable to save your review"
+            flash[:errors] = @review.errors.full_messages
             render :new
         end
     end

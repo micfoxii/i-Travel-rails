@@ -1,6 +1,8 @@
 class Review < ApplicationRecord
   validates :title, presence: true, length: {minimum: 10, maximum: 30}
-  validates :content, presence: true, length: {mimimum: 30, maximum: 300}
+  validates :content, presence: true, length: {minimum: 30}
+  validates :rating, presence: true
+  
 
   belongs_to :user
   belongs_to :city
