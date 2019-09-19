@@ -9,6 +9,7 @@ class CitiesController < ApplicationController
     def create
         @city = City.new(city_params)
         if @city.save
+            flash[:success] = "City Successfully Created!"
             redirect_to new_user_review_path(current_user)
         else
             @city.build_country
@@ -22,6 +23,12 @@ class CitiesController < ApplicationController
 
     def show
         @city = City.find(params[:id])
+    end
+
+    def destroy
+        @city = City.find(params[:id])
+        @city.destroy
+        redirect_to country_path
     end
 
     private

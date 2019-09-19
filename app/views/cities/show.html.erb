@@ -2,6 +2,7 @@
 <h4><%= " #{@city.average_city_rating} average rating from #{@city.city_review_count} reviews "%></h4>
 <br>
 
+<%= link_to "Delete City", city_path, :method => 'delete' %>
 <p>
 <%= link_to "Create Review for #{@city.city_state_country}", new_city_review_path(@city) %>
 </p>
