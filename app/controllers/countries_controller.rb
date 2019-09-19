@@ -11,6 +11,7 @@ class CountriesController < ApplicationController
         if @country.save
             redirect_to new_city_path
         else
+            flash[:errors] = @country.errors.full_messages
             render :new
         end
     end
