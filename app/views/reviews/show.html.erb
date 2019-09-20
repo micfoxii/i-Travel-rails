@@ -3,9 +3,8 @@
         By: <%= @review.user.name %>
     <% end %>
 </h5><br>
-<%# REFACTORED FROM TWO LINES %> <%# @review.city.name%> <%# @review.city.country.name %>
-<h4> <%= @review.city.city_state_country %>  </h4>
 
+<h4> <%= link_to "#{@review.city.city_state_country}", city_reviews_path(@review.city)%></h4>
 <p>
 Rating: <%= @review.rating %><br>
 <br>
