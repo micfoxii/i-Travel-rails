@@ -9,10 +9,15 @@ class Review < ApplicationRecord
  
 
   scope :most_recent, -> {order("created_at desc")}
-  scope :top_rated, -> {where("rating >=4").order("rating desc")}
+  scope :top_rated, -> {order("rating desc")}
   
   
   accepts_nested_attributes_for :city
   
+  private
+
+  def date_written
+    self.created_at.strftime("%m/%d/%Y at %I:%M%p")
+  end
 
 end

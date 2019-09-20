@@ -12,7 +12,8 @@
 
 <% @reviews.each do |review| %>
     <h4><%= link_to review.title,  review_path(review) %></h4>
+    <h5><%= review.city.city_state_country %></h5>
     <h6> Rating: <%= review.rating %>/5</h6>
-    <%= review.created_at %><br>
+    <%= review.created_at.strftime("%m/%d/%Y at %I:%M%p") %><br><br>
 
 <% end %>

@@ -13,6 +13,7 @@ class CitiesController < ApplicationController
             redirect_to new_user_review_path(current_user)
         else
             @city.build_country
+            flash[:errors] = @city.errors.full_messages
             render :new
         end
     end

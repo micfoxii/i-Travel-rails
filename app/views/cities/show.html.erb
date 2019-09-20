@@ -13,7 +13,7 @@
     <h5><%= "Most Recent Reviews for #{@city.city_state_country}" %></h5>
         <% @city.reviews.most_recent.limit(5).each do |review|  %>
             <%= review.title %><br> <%# TO DO ADD LINK TO REVIEW %>
-            <%= review.created_at %><br>
+            <%= review.created_at.strftime("%m/%d/%Y at %I:%M%p") %><br>
             <% if review.rating != nil %>
                 Rating: <%= review.rating %><br>
             <% end %>
