@@ -1,4 +1,5 @@
 <h1>Log in to your iTravel account!</h1>
+<p><%= flash[:error] %>
 
 <%= form_for(User.new, url: '/login') do |f|%>
 

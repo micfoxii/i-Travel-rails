@@ -16,8 +16,10 @@ class SessionsController < ApplicationController
             @user = User.find_or_create_by_facebook_omniauth(auth)
             if @user.id
                 session[:user_id] = @user.id
+                flash[:success] = "You have successfully logged in to iTravel!"
                 redirect_to user_path(@user)
             else
+                flash[:error] = display_errors(@user)
                 redirect_to '/'
             end
         else
@@ -25,19 +27,14 @@ class SessionsController < ApplicationController
 
             if @user.try(:authenticate, params[:user][:password])
                 session[:user_id] = @user.id 
+                flash[:success] = "Welcome to You have successfully logged in to iTravel!"
                 redirect_to user_path(@user)
             else
-                #TODO Flash Error
+                flash[:error] = "Incorrect Login"
                 redirect_to login_path
             end
         end
     end
-
-        # def omniauth 
-        #     @user = User.create_by_facebook_omniauth(auth)
-        #     session[:user_id] = @user.id
-        #     redirect_to user_path(@user)
-        # end
 
         private
 

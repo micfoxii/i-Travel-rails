@@ -1,8 +1,8 @@
 Welcome, <%= @user.name %>, to iTravel!
 
 <p>
-TO DO : Link To All Reviews<br>
-<%= link_to "See Your Trip Reviews", user_reviews_path(@user) %><br>
+<%= link_to "Your Reviews", user_reviews_path(@user)%><br>
+<%= link_to "All Reviews", reviews_path %><br>
 <%= link_to "Create New Review", new_user_review_path(@user) %>
 
 

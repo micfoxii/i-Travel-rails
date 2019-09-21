@@ -1,5 +1,6 @@
 class City < ApplicationRecord
-  # belongs_to :state
+  validates :name, presence: true
+
   belongs_to :country
   
   has_many :reviews
@@ -7,7 +8,10 @@ class City < ApplicationRecord
 
   accepts_nested_attributes_for :country
 
+
+
   scope :search, -> (query) { query ? City.where("name LIKE ?", "%#{query}%") : City.all }
+  scope :most_reviewed_city, -> { City.joins(:reviews).group("cities.id").order('COUNT(reviews.id) DESC').limit(1)}
   
 
   def city_state_country

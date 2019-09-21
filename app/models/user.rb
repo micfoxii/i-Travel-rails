@@ -2,7 +2,7 @@ class User < ApplicationRecord
     has_many :reviews
     has_many :cities, through: :reviews
 
-    validates :email, uniqueness: true, presence: true
+    validates :email, presence: true, uniqueness: true 
     validates :name, presence: true
     has_secure_password
     
@@ -18,6 +18,7 @@ class User < ApplicationRecord
         end
         user
     end
+
     # Take email to create username handle
     # def get_email
     #     self.email.gsub(/\@.*/, "")

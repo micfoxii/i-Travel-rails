@@ -1,7 +1,8 @@
 <h1> Countries </h1>
 
-<ol>
+<ul>
     <% @countries.each do |country| %>
-        <li><%= link_to country.name, country_path(country) %></li>
+        <li><%= link_to country.name, country_path(country) %>
+        </li>
     <% end %>
-</ol>
+</ul>

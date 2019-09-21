@@ -4,12 +4,17 @@
         <p>
         <%= link_to "Create Review for #{@city.city_state_country}", new_city_review_path(@city) %>
         </p>
+<% elsif @user %>
+        <h1> <%= @user.name %>, here are your reviews! </h1>
 <% else %>
         <h1> Reviews for All Cities </h1><br>
 <% end %><br>
 
 <% @reviews.each do |review| %>
     <h4><%= link_to review.title,  review_path(review) %></h4>
-    <%= review.created_at %><br>
+    <h5><%= review.city.city_state_country %></h5>
+    <h6> Rating: <%= review.rating %>/5</h6>
+    Author: <%= review.user.name %><br>
+    <%= review.created_at.strftime("%m/%d/%Y at %I:%M%p") %><br><br>
 
 <% end %>
