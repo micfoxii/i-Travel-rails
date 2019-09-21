@@ -32,6 +32,10 @@ class CitiesController < ApplicationController
         redirect_to country_path
     end
 
+    def most_reviewed
+        @city = City.most_reviewed_city
+    end
+
     private
 
     def city_params

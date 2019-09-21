@@ -40,7 +40,7 @@ class ReviewsController < ApplicationController
     def edit
         # set_user
         # find_review
-        redirect_to user_reviews_path(current_user) unless current_user == @user
+        redirect_to user_reviews_path(current_user) unless @user.id == @review.user_id
     end
 
     def update

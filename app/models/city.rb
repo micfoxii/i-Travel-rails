@@ -11,6 +11,7 @@ class City < ApplicationRecord
 
 
   scope :search, -> (query) { query ? City.where("name LIKE ?", "%#{query}%") : City.all }
+  scope :most_reviewed_city, -> { City.joins(:reviews).group("cities.id").order('COUNT(reviews.id) DESC').limit(1)}
   
 
   def city_state_country

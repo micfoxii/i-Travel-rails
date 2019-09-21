@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#create'
   
+  get '/most_reviewed' => 'cities#most_reviewed' #custom route to display show page for most reviewed city
   resources :users do
     resources :reviews
   end
